@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Book</title>
+    {{ bootstrap.load_css() }}
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <form action="{{ url_for('add') }}" method="POST" novalidate>
+            {{ form.csrf_token }}
+
+            <div class="my-3">
+            {{ form.book.label(class_="form-label fw-bold") }}
+            <div class="mt-2">
+              {{ form.book }}
+            </div>
+            </div>
+
+            <div class="mb-3">
+            {{ form.author.label(class_="form-label fw-bold") }}
+            <div>
+              {{ form.author }}
+            </div>
+            </div>
+
+            <div class="mb-3">
+            {{ form.rating.label(class_="form-label fw-bold") }}
+            <div>
+              {{ form.rating }}
+            </div>
+            </div>
+
+            {{ form.submit }}
+          </form>
+        </div>
+      </div>
+    </div>
+
+  {{ bootstrap.load_js() }}
+  </body>
+</html>
